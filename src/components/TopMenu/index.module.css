@@ -1,0 +1,15 @@
+.wrapper{
+    @apply
+    bg-slate-100
+    h-14
+    top-0
+}
+
+.container{
+    @apply
+    h-full
+    flex
+    justify-center
+    items-center
+    relative
+}
