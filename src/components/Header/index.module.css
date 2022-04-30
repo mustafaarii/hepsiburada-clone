@@ -68,7 +68,7 @@
 .mapIcon{
     @apply
     text-4xl
-    text-orange-500
+    text-hb-orange
     w-8/12
 }
 

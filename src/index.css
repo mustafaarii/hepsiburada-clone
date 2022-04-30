@@ -6,6 +6,9 @@
     body{
         @apply
         text-gray-500
+        h-screen 
+        w-screen 
+        bg-slate-50
     }
     
 }

@@ -7,6 +7,7 @@ import { BiMap } from 'react-icons/bi'
 import MapDropdown from './layouts/MapDropdown';
 import RightButtons from './layouts/RightButtons';
 import BottomColors from './layouts/BottomColors';
+import { headerlinks } from '../constants/header';
 
 interface IContext{
     mapShowed?:boolean;
@@ -17,26 +18,12 @@ export const HeaderContext = React.createContext<IContext>({});
 
 const Header : FC = () => {
 
-    const [links,setLinks] = useState<Array<ILink>>([]);
     const [masterState,setMasterState] = useState<any>({
         mapShowed:false,
         changeValue : (key:string,val:string|number) => {
             setMasterState({...masterState,[key]:val})
         }
     });
-    
-    useEffect(()=>{
-        const linksArr:Array<ILink> = [
-            {link:"#",label : "Siparişlerim"}, 
-            {link:"#", label:"Süper Fiyat, Süper Teklif"},
-            {link:"#", label:"Yurt Dışından"},
-            {link:"#", label:"Kampanyalar"},
-            {link:"#", label:"Girişimci Kadınlar", color : "text-red-500"},
-            {link:"#", label:"Çözüm Merkezi"},
-            {link:"#", label:"Hepsiburada'dan Satıcı Ol"},
-        ];
-        setLinks(linksArr);
-    },[])
 
     return (
         <HeaderContext.Provider value={masterState}>
@@ -45,7 +32,7 @@ const Header : FC = () => {
 
                 {/* Toplinks */}
                 <div className="w-full h-auto mt-2 flex justify-end relative right-72">
-                    <Toplink links={links}/>
+                    <Toplink links={headerlinks}/>
                 </div>
 
                 {/* Logo, search... line */}
@@ -64,7 +51,7 @@ const Header : FC = () => {
                         </div>
                         <div className={styles.mapTextContainer}>
                             <p className="text-black text-sm">Konum</p>
-                            <p className="text-orange-500 text-xs">Konum Seç</p>
+                            <p className="text-hb-orange text-xs">Konum Seç</p>
                         </div>
                     
                     </button>
