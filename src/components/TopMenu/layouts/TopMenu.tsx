@@ -10,20 +10,23 @@ const TopMenuComp: FC<ITopMenu> = ({ menu }) => {
   const [showDetail, setShowDetail] = useState(false);
 
   const renderDetails = () => {
-    return (
-      <div className="bg-white absolute p-10 h-min top-full left-0 bottom-0 w-full flex flex-row justify-center">
-        <TopSubMenuComp submenus={menu.submenuList} />
-        <div className="grid grid-cols-2 gap-2">
-          {
-            menu.imageMenuList?.map((imageMenu, index) => (
-              index === 0
-                ? <img className="col-span-full auto-rows-min rounded-md" alt={imageMenu.name} src={imageMenu.image} />
-                : <img className="rounded-md" alt={imageMenu.name} src={imageMenu.image} />
-            ))
-          }
+    if(menu.submenuList){
+      return (
+        <div className="bg-white absolute p-10 h-min top-full left-0 bottom-0 w-full flex flex-row justify-center z-10">
+          <TopSubMenuComp submenus={menu.submenuList} />
+          <div className="grid grid-cols-2">
+            {
+              menu.imageMenuList?.map((imageMenu, index) => (
+                index === 0
+                  ? <img className="col-span-full auto-rows-min rounded-md" alt={imageMenu.name} src={imageMenu.image} />
+                  : <img className="rounded-md" alt={imageMenu.name} src={imageMenu.image} />
+              ))
+            }
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
+    
   }
 
   return (

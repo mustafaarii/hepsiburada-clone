@@ -16,7 +16,7 @@ const TopSubMenuComp: FC<ITopSubMenu> = ({ submenus }) => {
             <div>
               {
                 submenu.topLabelList?.map(label => (
-                  <p className="text-sm">
+                  <p className="text-sm hover:text-hb-orange">
                     <a href={label.url}>{label.name}</a>
                   </p>
                 ))
