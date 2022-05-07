@@ -10,7 +10,7 @@ export const Toplink : FC<ITopLink> = ({links}) => {
             links.map((link:ILink) =>
                 <a 
                 href={link.link}
-                className= {`pl-3 pr-3 text-xs font-semibold text-gray-400 ${link.color ? link.color : ''}`}
+                className= {`pl-3 pr-3 text-xs font-semibold ${link.color ? link.color : 'text-gray-400'}`}
                 >
                 {link.label}
                 </a>

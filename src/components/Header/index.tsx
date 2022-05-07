@@ -7,7 +7,10 @@ import { BiMap } from 'react-icons/bi'
 import MapDropdown from './layouts/MapDropdown';
 import RightButtons from './layouts/RightButtons';
 import BottomColors from './layouts/BottomColors';
-import { headerlinks } from '../constants/header';
+
+interface IHeader{
+    links:Array<ILink>
+}
 
 interface IContext{
     mapShowed?:boolean;
@@ -16,7 +19,7 @@ interface IContext{
 
 export const HeaderContext = React.createContext<IContext>({});
 
-const Header : FC = () => {
+const Header : FC<IHeader> = ({links}) => {
 
     const [masterState,setMasterState] = useState<any>({
         mapShowed:false,
@@ -32,7 +35,7 @@ const Header : FC = () => {
 
                 {/* Toplinks */}
                 <div className="w-full h-auto mt-2 flex justify-end relative right-72">
-                    <Toplink links={headerlinks}/>
+                    <Toplink links={links}/>
                 </div>
 
                 {/* Logo, search... line */}
