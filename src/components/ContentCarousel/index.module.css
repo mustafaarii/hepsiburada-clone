@@ -1,0 +1,35 @@
+.wrapper{
+    @apply
+    relative
+    w-full
+}
+
+.container{
+    @apply
+    w-2/3
+    flex
+    flex-col
+    gap-6
+    mx-auto
+    relative
+}
+
+.header{
+    @apply
+    flex
+    gap-3
+}
+
+.content{
+    @apply
+    relative
+    overflow-x-hidden
+}
+
+.sliderDiv{
+    @apply
+    flex
+    justify-center
+    gap-4
+    
+}

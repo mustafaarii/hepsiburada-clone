@@ -36,4 +36,7 @@
     font-medium
     text-black
     shadow-sm
+    relative
+    after:absolute after:w-0 after:h-0 after:left-1/2 after:top-full after:clear-both after:border-l-4 after:border-r-4 after:border-t-4
+    after:border-l-transparent after:border-r-transparent after:border-t-white
 }

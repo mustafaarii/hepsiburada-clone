@@ -5,12 +5,12 @@ import { CarouselItem } from './models/CarouselItem';
 import { MdIosShare } from 'react-icons/md';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 
-export interface TopCarousel {
+export interface ITopCarousel {
   content: CarouselContent[],
   startIndex: number
 }
 
-const TopCarousel: FC<TopCarousel> = ({ content, startIndex }) => {
+const TopCarousel: FC<ITopCarousel> = ({ content, startIndex }) => {
 
   const [selectedContent, setSelectedContent] = useState<CarouselContent | null>(null); //seçili content dizisi
   const [contentIndex, setContentIndex] = useState<number>(startIndex); // seçili contentin indexi. buna göre next-prev yapılıyor
@@ -118,7 +118,7 @@ const TopCarousel: FC<TopCarousel> = ({ content, startIndex }) => {
           <p className="text-xs font-normal">{selectedItem?.noteText}</p>
 
         </div>
-        <a className="hover:cursor-pointer w-7/12" href={selectedItem?.imageLink}>
+        <a className="hover:cursor-pointer w-8/12" href={selectedItem?.imageLink}>
           <img className="rounded-md w-full h-full" src={selectedItem?.imageURL}>
           </img>
         </a>
