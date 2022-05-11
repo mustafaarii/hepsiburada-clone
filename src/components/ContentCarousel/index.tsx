@@ -10,12 +10,14 @@ export interface IContentCarousel {
 export interface IMasterState {
     clickCount: number, // carousel tuşlara tıklanma sayısı
     totalClickPermision: number, // tuşlara izin verilen toplam tıklama miktarı 
+    translateWidth:number // her tıklamada öteleme % miktarı
 }
 const ContentCarousel: FC<IContentCarousel> = ({ className, children }) => {
 
     const [masterState, setMasterState] = useState<IMasterState>({
         clickCount: 0,
-        totalClickPermision: 4
+        totalClickPermision: 4,
+        translateWidth:25
     })
 
     const handleButtonClick = (type:number /* 1:arttır 0:azalt */) => {
@@ -26,6 +28,13 @@ const ContentCarousel: FC<IContentCarousel> = ({ className, children }) => {
         if(clickCount >= totalClickPermision || clickCount < 0) clickCount=0;
 
         setMasterState({...masterState,clickCount})
+    }
+
+    const renderTranslateXpixel = () => {
+        if(masterState.clickCount === masterState.totalClickPermision)
+            return "-translate-x-full"
+        else
+            return `-translate-x-${masterState.clickCount}/${masterState.totalClickPermision}`   
     }
 
     return (
@@ -42,10 +51,9 @@ const ContentCarousel: FC<IContentCarousel> = ({ className, children }) => {
                     <CarouselHeader headText="Süper Fiyat, Süper Teklif" linkText="Tümü" linkURL="#" />
 
                     <div className={styles.content}>
-                        <div
-                            className={styles.sliderDiv +
-                                ` -translate-x-${masterState.clickCount}/${masterState.totalClickPermision} 
-                        transition-transform`}>
+                        <div 
+                        style={{transform:`translate(-${masterState.clickCount*masterState.translateWidth}%)`,transitionTimingFunction:"ease-in-out",transitionDuration:"500ms"}} 
+                        className={styles.sliderDiv +` transition-transform`}>
 
                             {children}
                         </div>

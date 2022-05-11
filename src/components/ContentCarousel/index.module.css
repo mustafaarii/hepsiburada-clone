@@ -1,7 +1,7 @@
 .wrapper{
     @apply
     relative
-    w-full
+    w-screen
 }
 
 .container{
@@ -30,6 +30,5 @@
     @apply
     flex
     justify-center
-    gap-4
-    
+    gap-4   
 }
