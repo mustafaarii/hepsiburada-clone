@@ -5,6 +5,10 @@ import CarouselHeader from './layouts/CarouselHeader';
 export interface IContentCarousel {
     className?: string
     children?: JSX.Element
+    headText?:string,
+    linkText?:string,
+    linkURL?:string,
+    sliderDivClass?:string
 }
 
 export interface IMasterState {
@@ -12,7 +16,7 @@ export interface IMasterState {
     totalClickPermision: number, // tuşlara izin verilen toplam tıklama miktarı 
     translateWidth:number // her tıklamada öteleme % miktarı
 }
-const ContentCarousel: FC<IContentCarousel> = ({ className, children }) => {
+const ContentCarousel: FC<IContentCarousel> = ({ className, children, headText, linkURL, linkText, sliderDivClass }) => {
 
     const [masterState, setMasterState] = useState<IMasterState>({
         clickCount: 0,
@@ -48,12 +52,12 @@ const ContentCarousel: FC<IContentCarousel> = ({ className, children }) => {
                     />
 
                     {/* BAŞLIK */}
-                    <CarouselHeader headText="Süper Fiyat, Süper Teklif" linkText="Tümü" linkURL="#" />
+                    <CarouselHeader headText={headText || "Göz at"} linkText={linkText} linkURL={linkURL} />
 
                     <div className={styles.content}>
                         <div 
                         style={{transform:`translate(-${masterState.clickCount*masterState.translateWidth}%)`,transitionTimingFunction:"ease-in-out",transitionDuration:"500ms"}} 
-                        className={styles.sliderDiv +` transition-transform`}>
+                        className={styles.sliderDiv +` transition-transform` + " " +sliderDivClass}>
 
                             {children}
                         </div>

@@ -23,12 +23,15 @@
 .content{
     @apply
     relative
-    overflow-x-hidden
+    overflow-hidden 
+    h-full 
+    w-full
 }
 
 .sliderDiv{
     @apply
     flex
-    justify-center
-    gap-4   
+    gap-4
+    w-full
+    h-full   
 }

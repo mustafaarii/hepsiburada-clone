@@ -25,7 +25,7 @@ const CarouselCard: FC<ICarouselCard> = ({ link, title, imgURL, price }) => {
         if(mouseOnCard){
             return (
                 <button 
-                className="bg-orange-50 rounded-md p-3 text-hb-orange font-medium h-12"
+                className="bg-orange-50 rounded-md p-3 text-hb-orange font-medium h-12 hover:bg-orange-100 transition-colors"
                 onClick={()=>alert("Sepete Eklendi")}
                 onMouseEnter={()=>setMouseOnButton(true)}
                 onMouseLeave={()=>setMouseOnButton(false)}
