@@ -34,7 +34,7 @@ const Header : FC<IHeader> = ({links}) => {
             <div className="w-full flex flex-col">
 
                 {/* Toplinks */}
-                <div className="w-full h-auto mt-2 flex justify-end relative right-72">
+                <div className="h-auto mt-2 flex justify-end relative right-24">
                     <Toplink links={links}/>
                 </div>
 

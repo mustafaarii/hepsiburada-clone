@@ -6,11 +6,10 @@
 
 .container{
     @apply
-    w-2/3
+    w-9/12
     flex
     flex-col
     gap-6
-    mx-auto
     relative
 }
 
