@@ -23,7 +23,7 @@ const ExploreItem: FC<IExploreItem> = ({ imageURL, title, starCount, maxStarCoun
             <p className="text-sm font-light line-through">
               {price} TL
             </p>
-            <span className="text-red-500 font-bold text-xs ml-2">%{(price / discountedPrice).toFixed(0)}</span>
+            <span className="text-red-500 font-bold text-xs ml-2">%{(((price-discountedPrice)/price)*100).toFixed(2)}</span>
           </div>
         </div>
       )
@@ -42,7 +42,7 @@ const ExploreItem: FC<IExploreItem> = ({ imageURL, title, starCount, maxStarCoun
         </div>
       </a>
       <div className="title pt-2 pl-2">
-        <p className="text-xs">{title}</p>
+        <p className="text-xs">{title && title?.length > 55 ? title?.slice(0,55)+"..." : title}</p>
       </div>
       <div className="star p-3 flex gap-2 mb-4">
         <HBStar

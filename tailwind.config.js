@@ -5,6 +5,7 @@ module.exports = {
       colors:{
         'hb-orange' : "#ff6000",
         'hb-light-orange' : "rgb(246, 159, 41)",
+        'hb-blue' : '#6c84fa'
       },
       gridTemplateRows: {
         '4n' : 'repeat(4,minmax(0,max-content))'

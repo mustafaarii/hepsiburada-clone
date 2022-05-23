@@ -16,19 +16,24 @@ const HBStar: FC<IHBStar> = ({max,total,margin,padding,width}) => {
 
     useEffect(()=>{
         const parseArr = total?.toString().split(".");
+        console.log(parseArr);
+        
         if(parseArr){
             if(parseArr[0]) setFull(parseInt(parseArr[0]))
             if(parseArr[1]) setHalf(parseInt(parseArr[1]))
         }
 
-        console.log(full, half);
+        
         
         
     },[])
 
+    console.log(max, full, half);
+    
     return (
         <div className={`flex m-${margin} w-${width} p-${padding}`} >
             {
+                full > 0 &&
                 Array(full).fill(null).map((el:number,i:number) =>(
                     <BsStarFill className="text-hb-light-orange" />
                 ))
@@ -37,7 +42,7 @@ const HBStar: FC<IHBStar> = ({max,total,margin,padding,width}) => {
                 half > 0 && <BsStarHalf className="text-hb-light-orange"/>
             }
             {
-                Array(max-full-1).fill(null).map((el:number,i:number)=>(
+                Array(max-full).fill(null).map((el:number,i:number)=>(
                     <BsStar />
                 ))
             }
