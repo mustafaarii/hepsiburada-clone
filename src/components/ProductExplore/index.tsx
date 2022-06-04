@@ -8,13 +8,13 @@ export interface IExploreContainer{
 
 const ExploreContainer : FC<IExploreContainer> = ({children, title, description}) => {
   return (
-    <div className="">
+    <div className="w-full">
       <div className="mb-4">
         <p className="text-xl tracking-wide font-normal text-hb-blue">{title}</p>
         <p className="text-sm">{description}</p>
       </div>
 
-      <div className="flex flex-wrap gap-8">
+      <div className="flex flex-wrap gap-6">
       {children}
       </div>
     </div>
