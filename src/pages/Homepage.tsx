@@ -91,6 +91,23 @@ const Homepage = () => {
                 }
 
             </ExploreContainer>
+            <ExploreContainer title="Telefonlar" description="Keşfetmeye devam et">
+                {
+                    explores.map((item: ExploreItemDTO) => (
+                        <ExploreItem
+                            discountedPrice={item.discountedPrice}
+                            price={item.price}
+                            imageLink={item.imageLink}
+                            imageURL={item.imageURL}
+                            maxStarCount={item.maxStarCount}
+                            starCount={item.starCount}
+                            rate={item.rate}
+                            title={item.title}
+                        />
+                    ))
+                }
+
+            </ExploreContainer>
         </div>
     )
 }

@@ -28,7 +28,7 @@ const ExploreItem: FC<IExploreItem> = ({ imageURL, title, starCount, maxStarCoun
         </div>
       )
     } else if (price) {
-      return (<p className="text-lg font-bold">{price} TL</p>)
+      return (<p className="text-lg font-bold">{price}<span className="text-sm">TL</span></p>)
     } else {
       return null;
     }
